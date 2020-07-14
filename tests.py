@@ -1,4 +1,4 @@
-# Laboratorio 1 Main.py
+# Laboratorio 2 Tests.py
 
 #Import our gl library
 from gl import Render,colorScale
