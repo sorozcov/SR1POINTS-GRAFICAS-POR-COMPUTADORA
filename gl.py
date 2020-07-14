@@ -136,4 +136,58 @@ class Render(object):
         file.close()
 
 
+    #Function for a line
+    def glLine(self,x0,y0,x1,y1,color=None):
+        #Convert to absolute coordinates
+        x0Abs =int(((x0+1)*(self.viewPortWidth/2))+ self.viewPortX)
+        y0Abs =int(((y0+1)*(self.viewPortHeight/2))+ self.viewPortY)
+        x1Abs =int(((x1+1)*(self.viewPortWidth/2))+ self.viewPortX)
+        y1Abs =int(((y1+1)*(self.viewPortHeight/2))+ self.viewPortY)
+        dy=y1Abs-y0Abs
+        dx=x1Abs-x0Abs
+        #Graphic a point if is the same
+        if(x0Abs==x1Abs and y0Abs==y1Abs):
+             self.glVertexColorAbsolute(int(x0Abs),int(y0Abs))
+        
+        #If vertical line
+        if(dx==0):
+            #Vertical Line
+            step= +1 if (y1Abs>y0Abs) else -1;
+            
+            for y in range(y0Abs,y1Abs,step):
+                x=x0Abs
+                self.glVertexColorAbsolute(int(x),int(y))
+        #Any other line
+        else:
+           #Use mx+b=y if m<=1 else my+b=x m>1
+           #This is better for points by set rather tan using just mx+b=y
+            m=dy/dx
+            if(abs(m)<=1 or dy==0):
+                b=y0Abs-(m*x0Abs)
+                step = 1 if (dx>0) else -1
+                if(m>0 and dy<=0 and dx<=0):
+                    step=-1
+                elif(m>0 and dy>=0 and dx>=0):
+                    step=+1
+                
+                for x in range(x0Abs,x1Abs,step):
+                    y=m*x+b
+                    self.glVertexColorAbsolute(int(x),int(y))
+            else:
+                m=dx/dy
+                b=x0Abs-(m*y0Abs)
+                step = 1 if (dy>0) else -1
+                if(m>0 and dy<=0 and dx<=0):
+                    step=-1
+                elif(m>0 and dy>=0 and dx>=0):
+                    step=+1
+                
+                for y in range(y0Abs,y1Abs,step):
+                    x=m*y+b
+                    self.glVertexColorAbsolute(int(x),int(y))
+            
+            
+
+
+      
 

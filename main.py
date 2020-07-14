@@ -1,8 +1,8 @@
 # Silvio Orozco 18282
 # Universidad del Valle de Guatemala
 # Gráficas por computadora
-# Guatemala 10/07/2020
-# Laboratorio 1 Main.py
+# Guatemala 13/07/2020
+# Laboratorio 2 Main.py
 
 #Import our gl library
 from gl import Render,colorScale
@@ -22,8 +22,9 @@ Cuenta con el siguiente menu para modificar graphic.bmp en esta misma carpeta.
     2. Cambiar color del pincel de puntos.
     3. Cambiar viewPort.
     4. Crear un nuevo punto.
-    5. Finalizar y guardar el archivo graphic.bmp.
-    6. Cualquier otra tecla para salir. (Ojo si sale y no guarda primero, se perderán los cambios.)
+    5. Crear una línea.
+    6. Finalizar y guardar el archivo graphic.bmp.
+    7. Cualquier otra tecla para salir. (Ojo si sale y no guarda primero, se perderán los cambios.)
     Ingrese su opción: 
 '''
 
@@ -113,8 +114,16 @@ while(True):
          vertexY=(askForNumberBetween0and1('Ingrese el valor entre -1 y 1 en y relativo al viewPort para el punto: ',True))
          mainGl.glVertexColorRelative(vertexX,vertexY)
          continue
-    #glFinish save
+    #glVertex create line
     elif(mainOption=="5"):
+         vertexX0=(askForNumberBetween0and1('Ingrese el valor entre -1 y 1 en x relativo al viewPort para el punto x0: ',True))
+         vertexY0=(askForNumberBetween0and1('Ingrese el valor entre -1 y 1 en y relativo al viewPort para el punto y0: ',True))
+         vertexX1=(askForNumberBetween0and1('Ingrese el valor entre -1 y 1 en x relativo al viewPort para el punto x1: ',True))
+         vertexY1=(askForNumberBetween0and1('Ingrese el valor entre -1 y 1 en y relativo al viewPort para el punto y1: ',True))
+         mainGl.glLine(vertexX0,vertexY0,vertexX1,vertexY1)
+         continue
+    #glFinish save
+    elif(mainOption=="6"):
         mainGl.glFinish('graphic.bmp')
         continue
     #exit
