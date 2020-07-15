@@ -36,13 +36,13 @@ mainGl.glViewPort(200,100,400,400)
 
 
 # #Cuadrante 4
-# mainGl.glLine(0,0,0.707,-0.707)
-# mainGl.glLine(0,0,0.86,-0.5)
-# mainGl.glLine(0,0,0,-1)
-# mainGl.glLine(0,0,0.5,-0.86)
-# mainGl.glLine(0,0,1,0)
-# mainGl.glLine(0,0,0.9659,-0.2588)
-# mainGl.glLine(0,0,0.2588,-0.9659)
+mainGl.glLine(0,0,0.707,-0.707)
+mainGl.glLine(0,0,0.86,-0.5)
+mainGl.glLine(0,0,0,-1)
+mainGl.glLine(0,0,0.5,-0.86)
+mainGl.glLine(0,0,1,0)
+mainGl.glLine(0,0,0.9659,-0.2588)
+mainGl.glLine(0,0,0.2588,-0.9659)
 
 
 # mainGl.glLine(-1,-1,1,1)
